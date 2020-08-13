@@ -7,12 +7,30 @@
       name="description"
       content="Software-Entwicklung für Web, Mobile & Backend"
     />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 100vh;
+        padding: 20px;
+      }
+    </style>
     <title>Plus Epsilon Software</title>
   </head>
 
-  <body>
-    <div>
-      Hallo
+  <body style="margin: 0px;">
+    <div class="main">
+      <div>text</div>
+      <div style="display: flex; flex-direction: column; justify-content: flex-end;">
+        <img src="gregor-small.webp" data-src="gregor.webp" alt="Gregor" style="width: 300px;"></img>
+      </div>
+      
     </div>
+
+    <script async src="loadImages.js"></script>
   </body>
 </html>
