@@ -10,27 +10,114 @@
     <style>
       * {
         box-sizing: border-box;
+        margin-top: 0px;
+      }
+      body {
+        font-family: monospace;
+        font-size: 16px;
+        margin: 0px;
+        
+      }
+      .body {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        height: 100vh;
+        padding: 20px;
+        padding-left: 40px;
+      }
+      h1 {
+        font-size: 36px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+      }
+      p {
+        margin-bottom: 20px;
+        line-height: 22px;
       }
       .main {
+        flex: 1;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        height: 100vh;
-        padding: 20px;
+      }
+      img.emoji {
+        height: 1em;
+        width: 1em;
+        margin: 0 .05em 0 .1em;
+        vertical-align: -0.1em;
+      }
+      img.progressive[data-src] {
+        filter: blur(0.1em) grayscale(1) brightness(1.25);
+      }
+      img.progressive {
+        filter: blur(0em) grayscale(1) brightness(1.25);
+        transition: filter 0.5s; 
+        width: 250px;
+      }
+      a {
+        text-decoration: none;
+        font-weight: bold;
+        color: inherit;
+        padding-bottom: 2px;
+        border-bottom-width: 2px;
+        border-bottom-style: solid;
+      }
+      a:hover {
+        color: rgb(3, 169, 244);
       }
     </style>
     <title>Plus Epsilon Software</title>
   </head>
 
-  <body style="margin: 0px;">
-    <div class="main">
-      <div>text</div>
-      <div style="display: flex; flex-direction: column; justify-content: flex-end;">
-        <img src="gregor-small.webp" data-src="gregor.webp" alt="Gregor" style="width: 300px;"></img>
+  <body>
+    <div class="body">
+      <h1>Software mit &#x2764; und &#x1F9E0;</h1>
+      <div class="main">
+        <div style="max-width: 700px;">
+          <p>
+            Ich bin Gregor Mitscha-Baude, Software-Entwickler und Freelancer.
+          </p>
+          <p>
+            Ich kann komplette digitale Lösungen entwerfen und umsetzen:
+            Vom User-Interface – Webseite oder mobile App – über die Server-Infrastruktur
+            bis hin zur Weiterentwicklung der benötigten Algorithmen.
+          </p>
+          <p>
+            (Im Team oder mit anderen)
+          </p>
+          <p>
+            <b>Spezialfähigkeiten. </b>
+            Ich habe einen Background in technischer Mathematik und ein Doktorat durchlaufen
+            das sich an der Schnittstelle von physikalischer Modellierung und numerischer Simulation befand.
+            Ich bin sehr gut im Handhaben von Komplexität.
+          </p>
+          <p>
+            <b>Erfahrung. </b>
+            Ich habe bisher ein profiliertes Projekt auf die Beine gestellt, eine Telemedizin-App
+            inklusive Ärzte-Software. (Challenges hervorheben)
+          </p>
+
+          <p>
+            Bevorzugt implementiere ich diese Lösungen in JavaScript, mit React als UI-Framework.
+            Ich bin aber auch in einer Python-, Java- oder C/C++-Codebase einsatzfähig.
+          </p>
+        </div>
+        <div style="display: flex; flex-direction: column; align-self: stretch;
+          justify-content: space-between;"
+        >
+          <p style="text-align: right;"><a href="mailto:gregor@plusepsilon.com">gregor@plusepsilon.com</a></p>
+          <img class="progressive" src="gregor-small.webp" data-src="gregor.webp" alt="Gregor"></img>
+        </div>
+        
       </div>
-      
     </div>
 
+    <!-- progressive image loading -->
     <script async src="loadImages.js"></script>
+
+    <!-- convert unicode emojis to images in twitter emoji style -->
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    <script>twemoji.parse(document.body);</script>
   </body>
 </html>
