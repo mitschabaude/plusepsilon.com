@@ -16,15 +16,15 @@
         font-family: monospace;
         font-size: 16px;
         margin: 0px;
-        
       }
       .body {
         display: flex;
         flex-direction: column;
-        align-items: stretch;
         height: 100vh;
         padding: 20px;
-        padding-left: 40px;
+      }
+      @media (min-width: 768px) {
+        .body { padding-left: 40px; }
       }
       h1 {
         font-size: 36px;
@@ -33,20 +33,45 @@
       }
       p {
         margin-bottom: 20px;
-        line-height: 22px;
+        line-height: 23px;
       }
       .main {
         flex: 1;
+        min-height: 0;
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
+        align-items: stretch;
       }
+      .textbox {
+        max-width: 700px;
+        padding-right: 16px;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      .sidebar {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        /* text-align: right; */
+      }
+      @media (max-width: 767px) {
+        .main {
+          flex: none;
+          display: block;
+        }
+        .sidebar {
+          display: block;
+        }
+      }
+
       img.emoji {
         height: 1em;
         width: 1em;
         margin: 0 .05em 0 .1em;
         vertical-align: -0.1em;
       }
+
       img.progressive[data-src] {
         filter: blur(0.1em) grayscale(1) brightness(1.25);
       }
@@ -55,10 +80,11 @@
         transition: filter 0.5s; 
         width: 250px;
       }
+
       a {
         text-decoration: none;
         color: inherit;
-        padding-bottom: 2px;
+        padding-bottom: 1px;
         border-bottom-width: 2px;
         border-bottom-style: solid;
       }
@@ -72,8 +98,8 @@
   <body>
     <div class="body">
       <h1>Software mit &#x2764; und &#x1F9E0;</h1>
-      <div class="main">
-        <div style="max-width: 700px;">
+      <main class="main">
+        <section class="textbox">
           <p>
             Ich bin Gregor Mitscha-Baude, Software-Entwickler und Freelancer.
           </p>
@@ -85,14 +111,6 @@
           <p>
             Ich habe bisher ein profiliertes Projekt auf die Beine gestellt, eine
             <a href="https://drd.at">Telemedizin-App inklusive Ärzte-Software</a>.
-            <!-- Challenges die ich dabei gelöst habe waren
-            <ul>
-              <li>Verfügbarkeit auf drei Plattformen: Als Android-, iOS- und Web-App.</li>
-              <li>Peer-to-peer-Videochat zwischen Usern auf verschiedenen Plattformen</li>
-              <li>Video-Anrufe auch bei geschlossener App erhalten 
-                (durch Integration in die jeweiligen Push/VoIP Technologien)
-              </li>
-            </ul> -->
           </p>
           <p>
             Einer meiner größten Stärken ist die Bewältigung von Komplexität. 
@@ -104,15 +122,10 @@
             Python beherrsche ich flüssig.
             Ich fühle mich aber universell einsetzbar und an keine Sprache oder Tool gebunden.
           </p>
-          <!-- <p>
-            Ich würde gern die Welt verbessern und freue mich, wenn ich dabei helfen kann.
-          </p> -->
-        </div>
-        <div style="width: 24px;"></div>
-        <div style="display: flex; flex-direction: column; align-self: stretch;
-          justify-content: space-between;"
-        >
-          <div style="text-align: right;">
+        </section>
+        <div style="flex: none; width: 8px;"></div>
+        <div class="sidebar">
+          <div>
             <p><b>
               <a href="mailto:gregor@plusepsilon.com">gregor@plusepsilon.com</a>
             </b></p>
@@ -121,7 +134,7 @@
           <img class="progressive" src="gregor-small.webp" data-src="gregor.webp" alt="Gregor"></img>
         </div>
         
-      </div>
+      </main>
     </div>
 
     <!-- progressive image loading -->
