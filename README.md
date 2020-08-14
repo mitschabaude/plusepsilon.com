@@ -3,4 +3,4 @@ Sofware developer landing page at [https://plusepsilon.com](https://plusepsilon.
 
 For simplicity, speed & SEO, this is a pure html page without build tooling or frameworks.
 
-In the /images folder there are some useful image processing techniques.
+In the /image folder there are some useful image processing techniques.
