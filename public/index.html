@@ -34,7 +34,11 @@
       }
       p {
         margin-bottom: 20px;
-        line-height: 23px;
+        line-height: 26px;
+      }
+      li {
+        margin-bottom: 12px;
+        line-height: 26px;
       }
       .main {
         flex: 1;
@@ -87,7 +91,7 @@
       a {
         text-decoration: none;
         color: inherit;
-        padding-bottom: 1px;
+        padding-bottom: 0px;
         border-bottom-width: 2px;
         border-bottom-style: solid;
       }
@@ -100,30 +104,26 @@
 
   <body>
     <div class="body">
-      <h1>Software mit &#x2764; und &#x1F9E0;</h1>
+      <h1>Hey, I'm Gregor 👋</h1>
       <main class="main">
         <section class="textbox">
           <p>
-            Ich bin Gregor Mitscha-Baude, Software-Entwickler und Freelancer.
+            I'm Gregor Mitscha-Baude. I like programming, especially math & crypto stuff ❤️
+
           </p>
           <p>
-            Ich kann komplette digitale Lösungen entwerfen und umsetzen:
-            Vom User-Interface – Webseite oder mobile App – über die Server-Infrastruktur
-            bis hin zur Weiterentwicklung der benötigten Algorithmen.
-          </p>
-          <p>
-            Ich habe bisher ein profiliertes Projekt auf die Beine gestellt, eine
-            Telemedizin-App inklusive Ärzte-Software.
-          </p>
-          <p>
-            Eine meiner größten Stärken ist die Bewältigung von Komplexität. 
-            Dabei hilft mir auch mein Background in Mathematik und ein Doktorat zwischen
-            Physik-Modellierung und numerischer Simulation.
-          </p>
-          <p>
-            Bevorzugt arbeite ich derzeit mit JavaScript/TypeScript (React, Node.js).
-            Python mag ich auch.
-            Ich fühle mich aber universell einsetzbar und an kein Tool gebunden.
+            What I do:
+
+            <ul>
+              <li>👨‍💻 Developer at <a href="https://o1labs.org/">O(1) labs</a><br>
+                Focus on building <a href="https://github.com/o1-labs/snarkyjs">SnarkyJS</a>,
+                a framework for zero-knowledge proofs; in particular, zk smart contracts on the <a href="https://minaprotocol.com/">Mina</a> blockchain</li>
+              <li>🔒 Cofounder at <a href="https://zksecurity.xyz/">zkSecurity</a>, a security audit firm specialized in zero-knowledge apps</li>
+              <li>⚡ Open source developer. Focus on speed-optimized TypeScript libraries, like
+                <a href="https://github.com/mitschabaude/montgomery">montgomery</a> which
+                won 2nd place in the <a href="https://www.zprize.io/blog/announcing-zprize-results">ZPrize 2022</a></li>
+              <li>🍓 Co-creator of <a href="https://github.com/jam-systems/jam">Jam</a>, an open-source audio space</li>
+            </ul>
           </p>
         </section>
         <div style="flex: none; width: 8px;"></div>
@@ -135,7 +135,10 @@
             <p><b>
                 <a href="https://github.com/mitschabaude" target="_blank" rel="noreferrer">Github</a>
               </b></p>
-            <p>Standort: Wien</p>
+            <p><b>
+                <a href="https://twitter.com/mitschabaude" target="_blank" rel="noreferrer">Twitter</a>
+              </b></p>
+            <p>🏠 Wien, Austria</p>
           </div>
           <img class="progressive" src="gregor-small.webp" data-src="gregor.webp" alt="Gregor"></img>
         </div>
@@ -144,7 +147,14 @@
     </div>
 
     <!-- progressive image loading -->
-    <script async src="loadImages.js"></script>
+    <script>
+      for (let image of document.querySelectorAll("img[data-src]")) {
+        image.setAttribute("src", image.getAttribute("data-src"));
+        image.onload = () => {
+          image.removeAttribute("data-src");
+        };
+      }
+    </script>
 
     <!-- convert unicode emojis to images in twitter emoji style -->
     <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
